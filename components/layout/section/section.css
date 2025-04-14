@@ -1,0 +1,13 @@
+.section::after {
+  background-image: url("../../../public/layered-peaks-haikei.svg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+  content: " ";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}

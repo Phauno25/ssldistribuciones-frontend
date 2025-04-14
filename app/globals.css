@@ -1,33 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@view-transition {
+  navigation: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Define CSS variables for theme colors */
+:root {
+  --color-primary-main: #1d4ed8;
+  --color-primary-dark: #1e3a8a;
+  --color-primary-light: #3b82f6;
+}
+
+/* Example of a dark theme override */
+[data-theme="dark"] {
+  --color-primary-main: #dc2626;
+  --color-primary-dark: #b91c1c;
+  --color-primary-light: #ef4444;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  width: 100%;
+  max-width: 100%;
+  background-color: #1e262e;
 }
