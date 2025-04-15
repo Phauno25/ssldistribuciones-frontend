@@ -29,9 +29,9 @@ export const POST = async (req: Request) => {
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json(
-      { error: "Internal Server Error", details: error.message },
+      { error: "Internal Server Error: " + error, details: "Error" },
       { status: 500 }
     );
   }
