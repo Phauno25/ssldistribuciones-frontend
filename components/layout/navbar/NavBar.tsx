@@ -9,7 +9,6 @@ import { NavBarData } from "./types";
 
 const NavBar: React.FC<NavBarData> = ({ logo, menu, title, displayTitle }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(menu)
   const handleDisplayMenu = () => {
     setMenuOpen(!menuOpen);
   };
