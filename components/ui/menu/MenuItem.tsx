@@ -10,7 +10,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ name, url }) => {
   const pathname = usePathname();
   const isActive = () => {
     if (url) {
-      console.log(pathname);
       return pathname.toLowerCase().includes(url) || pathname === url;
     }
     return false;
