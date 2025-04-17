@@ -12,6 +12,7 @@ export type MenuItemProps = {
   name?: string;
   url?: string;
   link?: LinkProps[];
+  active?: boolean;
 };
 
 export type MenuProps = {

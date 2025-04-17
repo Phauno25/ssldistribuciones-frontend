@@ -10,9 +10,9 @@ const Menu: React.FC<MenuProps> = ({ menuItem, className, ...props }) => {
       <ul className="flex flex-col font-medium mt-4 gap-4 border border-gray-100 rounded-lg md:flex-row md:mt-0 md:border-0">
         {menuItem.map((item) => {
           if (item.__component === "ui.link-list") {
-            return <MenuListItem key={item.id} {...item} />;
+            return <MenuListItem key={item.name} {...item} />;
           } else {
-            return <MenuItem key={item.id} {...item} />;
+            return <MenuItem key={item.name} {...item} />;
           }
         })}
       </ul>

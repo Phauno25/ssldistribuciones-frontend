@@ -17,24 +17,18 @@ const styles = {
     filled: `text-default font-semibold bg-primary-main active:bg-primary-dark hover:bg-primary-light`,
     link: "",
     gradient:
-      "p-0.5 flex items-center justify-center text-white bg-gradient-to-br from-secondary-main to-primary-main group-hover:from-blue-600 group-hover:to-primary-main hover:text-white focus:ring-1 focus:outline-none focus:ring-primary-main",
+      "p-0.5 flex items-center justify-center text-white bg-gradient-to-br from-secondary-main to-primary-main hover:from-blue-600 hover:to-primary-main hover:text-black hover:text-semibold focus:ring-1 focus:outline-none focus:ring-primary-main",
   },
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      variant = "filled",
-      size = "md",
-      className,
-      ...props
-    },
-    ref
-  ) => {
+  ({ children, variant = "filled", size = "md", className, ...props }, ref) => {
     return variant === "gradient" ? (
       <motion.button
-        whileHover={{ scale: 1.2 }}
+        whileTap={{
+          scale: 1.2,
+        }}
+        whileHover={{ scale: 1.1 }}
         {...props}
         className={clsx(styles.base, styles.variant[variant], className)}
         color="red"
@@ -43,7 +37,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span
           className={clsx(
             styles.size[size],
-            "relative transition-all ease-in duration-75 bg-surface-main rounded-md group-hover:bg-opacity-0",
+            "relative transition-all ease-in duration-75 bg-surface-main rounded-md hover:bg-opacity-0",
             className
           )}
         >

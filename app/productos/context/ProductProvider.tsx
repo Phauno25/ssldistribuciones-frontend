@@ -31,11 +31,11 @@ const ProductProvider: React.FC<ProductProviderProps> = ({ children }) => {
         "product-categories?populate[subcategories][populate]=*",
         "collection"
       );
-      const fetchedProducts: ProductData[] |  undefined = await getData(
+      const fetchedProducts: ProductData[] | undefined = await getData(
         "products?populate=*",
         "collection"
       );
-      
+
       let subcats: SubCategoryData[] = [];
       let collects: CollectionData[] = [];
       if (fetchedCategories) {
@@ -58,14 +58,15 @@ const ProductProvider: React.FC<ProductProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (selectedCategories?.length === 0) {
-      setSelectedSubcategories([]);
-      setSelectedCollections([]);
+      if (selectedSubcategories?.length) setSelectedSubcategories([]);
+      if (selectedCollections?.length) setSelectedCollections([]);
       return;
     }
-    if (!selectedSubcategories) {
-      setSelectedCollections([]);
+
+    if (!selectedSubcategories || selectedSubcategories.length === 0) {
+      if (selectedCollections?.length) setSelectedCollections([]);
     }
-  }, [selectedCategories, selectedSubcategories, selectedCollections]);
+  }, [selectedCategories, selectedSubcategories]);
 
   const contextValue = useMemo(
     () => ({

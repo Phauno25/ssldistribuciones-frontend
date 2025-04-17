@@ -88,7 +88,7 @@ const Page = () => {
         </p>
       </div>
 
-      <div className="w-full flex flex-row flex-wrap gap-4 p-8">
+      <div className="w-full flex flex-row items-stretch flex-wrap gap-4 p-8">
         <div className="w-full flex px-6 gap-4">
           <Button
             onClick={() => {
@@ -108,18 +108,21 @@ const Page = () => {
         </div>
 
         <div className="bg-surface-light w-full h-[1px]" />
-        {filteredProducts?.map((product) => {
-          const { name, resumen, cover, slug } = product;
-          return (
-            <SmallProductCard
-              key={name}
-              name={name}
-              img={cover.url}
-              slug={slug}
-              resumen={resumen}
-            />
-          );
-        })}
+
+        <div className="flex flex-row items-stretch">
+          {filteredProducts?.map((product) => {
+            const { name, resumen, cover, slug } = product;
+            return (
+              <SmallProductCard
+                key={name}
+                name={name}
+                img={cover.url}
+                slug={slug}
+                resumen={resumen}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   ) : (

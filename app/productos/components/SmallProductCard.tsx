@@ -30,25 +30,28 @@ const SmallProductCard: React.FC<SmallProductCardProps> = ({
         width={48}
         className="rounded-full text-primary-main hover:bg-surface-extralight absolute top-2 right-2 p-2 cursor-pointer"
       /> */}
-      <div className="bg-surface-main p-4 md:p-6 rounded-lg">
-        <div className="w-full h-36 md:h-52">
-          {img && (
-            <img
-              alt="Imagen del producto"
-              src={loadImgUrl(img)}
-              className="object-cover w-full h-full"
-              style={{
-                viewTransitionName: /* `${loadImgUrl(img)}` */ "pablo",
-              }}
-            />
-          )}
+      <div className="bg-surface-main p-4 md:p-6 rounded-lg h-full flex flex-col justify-between">
+        <div>
+          <div className="w-full h-36 md:h-52">
+            {img && (
+              <img
+                alt="Imagen del producto"
+                src={loadImgUrl(img)}
+                className="object-cover w-full h-full"
+                style={{
+                  viewTransitionName: /* `${loadImgUrl(img)}` */ "pablo",
+                }}
+              />
+            )}
+          </div>
+          <h3 className="text-primary-main text-xl md:text-2xl font-semibold mt-4">
+            {name}
+          </h3>
+          <p className="py-2 md:py-4 md:text-md">{resumen}</p>
         </div>
-        <h3 className="text-primary-main text-xl md:text-2xl font-semibold">
-          {name}
-        </h3>
-        <p className="py-2 md:py-4 md:text-md">{resumen}</p>
+
         <div className="flex flex-row justify-center p-2">
-          <Button variant="gradient" onClick={handleClick}>
+          <Button variant="gradient" onClick={handleClick} size="lg">
             Ver Más
           </Button>
         </div>

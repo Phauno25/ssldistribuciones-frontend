@@ -39,12 +39,9 @@ const MenuListItem: React.FC<MenuItemProps> = ({ link: links, name }) => {
               className="text-white divide-y divide-surface-light"
               aria-labelledby="dropdownLargeButton"
             >
-              {links &&
-                links.map((item) => {
-                  return (
-                    <MenuItem url={item.url} name={item.name} key={item.name} />
-                  );
-                })}
+              {links?.map((item) => (
+                <MenuItem url={item.url} name={item.name} key={item.name} />
+              ))}
             </motion.ul>
           </div>
         )}

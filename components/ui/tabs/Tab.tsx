@@ -34,18 +34,22 @@ const Tab: React.FC<TabProps> = ({ children, onTabChange, ...props }) => {
   };
 
   return (
-    <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+    <ul
+      className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400"
+      {...props}
+    >
       {tabItems.map((tabItem, index) => {
         return (
-          <li key={tabItem.props.children?.toString()}>
+          <li key={tabItem.props.name?.toString()}>
             <button
               {...tabItem.props}
-              value={tabItem.props.children?.toString()}
+              value={tabItem.props.value?.toString()}
               className={clsx(
                 "inline-block p-4 rounded-t-lg hover:bg-surface-light active:bg-surface-main",
-                tabItem.props.active
+                tabItem.props.selected
                   ? " text-primary-main bg-surface-main"
-                  : "text-white"
+                  : "text-white",
+                tabItem.props.className
               )}
               onClick={(e) => handleTabItemClick(e, index)}
             />

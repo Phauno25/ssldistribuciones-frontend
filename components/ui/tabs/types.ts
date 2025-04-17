@@ -6,5 +6,5 @@ export type TabProps = {
 } & HtmlHTMLAttributes<HTMLUListElement>;
 
 export type TabItemProps = {
-  active?: boolean;
+  selected?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
