@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 
 const Page = ({ params }: PageProps) => {
   const { data, loading } = useFetch<PageData>(
-    `pages?filter[slug]=${params.slug}&&populate[hero][populate]=*&populate[body][populate]=*`,
+    `pages?filters[slug][$eq]=${params.slug}&populate[hero][populate]=*&populate[body][populate]=*`,
     "collection"
   );
   useEffect(() => {}, [data]);

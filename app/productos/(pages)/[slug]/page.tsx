@@ -12,7 +12,7 @@ import { PageProps } from "@/types/types";
 
 const Page = ({ params }: PageProps) => {
   const { data, loading } = useFetch<ProductData[]>(
-    `products?filter[slug]=${params.slug}&&populate=*`,
+    `products?filters[slug][$eq]=${params.slug}&&populate=*`,
     "collection"
   );
 
@@ -24,7 +24,7 @@ const Page = ({ params }: PageProps) => {
 
   return data ? (
     <div className="w-full flex flex-col md:flex-row md:justify-between bg-neutral-900">
-      <div className="w-full md:w-1/2 flex justify-center p-12 ">
+      <div className="w-full md:w-1/2 flex justify-center p-12 h-fit">
         <ImgGallery images={data[0].images} />
       </div>
       <div className="w-full md:w-2/5 bg-surface-dark space-y-6 p-4 flex flex-col justify-start border-l-2 border-surface-main">

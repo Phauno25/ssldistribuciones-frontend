@@ -10,7 +10,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ name, url }) => {
   const pathname = usePathname();
   const isActive = () => {
     if (url) {
-      return pathname.includes(url) || pathname === url;
+      console.log(pathname);
+      return pathname.toLowerCase().includes(url) || pathname === url;
     }
     return false;
   };
@@ -29,7 +30,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ name, url }) => {
           "p-4 block h-full md:border-0",
           ItemStyles.base,
           ItemStyles.colors,
-          active && "text-primary-dark"
+          active ? "text-primary-dark" : "text-white"
         )}
       >
         {name}

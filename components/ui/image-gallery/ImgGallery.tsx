@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { loadImgUrl } from "@/utils/functions";
 import { ImageGalleryProps } from "./types";
+import clsx from "clsx";
 
 const spring = {
   type: "tween",
@@ -11,7 +12,7 @@ const spring = {
 };
 
 const ImgGallery: React.FC<ImageGalleryProps> = ({ images }) => {
-  // Creamos un array de indices para cada imagen qe haya 
+  // Creamos un array de indices para cada imagen qe haya
   const initialOrder = images?.map((_, index) => index) ?? [];
   const [order, setOrder] = useState(initialOrder);
 
@@ -32,7 +33,7 @@ const ImgGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   };
 
   return (
-    <motion.div className="grid grid-cols-3 gap-2" layout>
+    <motion.div className="grid grid-cols-3 gap-8" layout>
       {order.map((imageIndex, _) => {
         const isSelected = imageIndex === selectedIndex;
         const image = images?.[imageIndex];
@@ -54,7 +55,10 @@ const ImgGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                 swapIndex(order, imageIndex);
               }
             }}
-            className="relative cursor-pointer border-2 border-surface-main rounded-md overflow-hidden"
+            className={clsx(
+              "relative cursor-pointer border-2 border-surface-main rounded-md overflow-hidden",
+              isSelected ? "h-[50vh]" : "h-[25vh]"
+            )}
             style={{
               gridColumnStart: isSelected ? 1 : "auto",
               gridColumnEnd: isSelected ? 4 : "auto",
@@ -62,7 +66,7 @@ const ImgGallery: React.FC<ImageGalleryProps> = ({ images }) => {
           >
             <motion.img
               layout
-              className="w-full h-auto object-contain"
+              className="w-full h-full object-contain"
               src={loadImgUrl(image.url)}
               alt={image.alternativeText ?? ""}
             />
