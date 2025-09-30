@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui";
 import { loadImgUrl } from "@/utils/functions";
 import { ImageType } from "@/types/types";
+import Image from "next/image";
 
 type ProductGalleryProps = {
   images?: ImageType[];
@@ -28,7 +29,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         {/* Main Image */}
         <div className="relative group">
           <div className=" overflow-hidden rounded-2xl border border-surface-main">
-            <img
+            <Image
               src={loadImgUrl(images[selectedImage].url)}
               alt={`${"productName"} - Vista ${selectedImage + 1}`}
               className="w-full h-96 md:h-[400px] object-cover"
@@ -76,7 +77,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                     : "hover:ring-1 hover:ring-primary/50"
                 }`}
               >
-                <img
+                <Image
                   src={loadImgUrl(image.url)}
                   alt={`${"productName"} - Miniatura ${index + 1}`}
                   className="w-full h-20 object-cover"

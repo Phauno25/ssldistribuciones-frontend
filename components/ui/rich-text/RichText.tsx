@@ -2,6 +2,7 @@ import {
   BlocksRenderer,
   type BlocksContent,
 } from "@strapi/blocks-react-renderer";
+import Image from "next/image";
 
 const cx = (...cls: (string | false | undefined)[]) =>
   cls.filter(Boolean).join(" ");
@@ -63,7 +64,7 @@ export function RichText({
           const alt = image.alternativeText || "";
           return (
             <div className="my-6">
-              <img src={src} alt={alt} className={imageClassName} />
+              <Image src={src} alt={alt} className={imageClassName} />
               {alt && <p className="mt-2 text-sm text-gray-500">{alt}</p>}
             </div>
           );

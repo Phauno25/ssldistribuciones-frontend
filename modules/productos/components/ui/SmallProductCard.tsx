@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Button, Icon } from "@/components/ui";
 import { ProductData } from "../../types";
 import clsx from "clsx";
+import Image from "next/image";
 
 type SmallProductCardProps = {
   product: ProductData;
@@ -52,7 +53,7 @@ const SmallProductCard: React.FC<SmallProductCardProps> = ({
         <div>
           <div className="relative w-full h-36 md:h-36 overflow-hidden rounded group">
             {cover?.url && (
-              <img
+              <Image
                 alt="Imagen del producto"
                 src={loadImgUrl(cover.url)}
                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-0"

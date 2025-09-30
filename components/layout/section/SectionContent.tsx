@@ -3,6 +3,7 @@ import { ImageType } from "@/types/types";
 import { loadImgUrl } from "@/utils/functions";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 import { motion } from "motion/react";
+import Image from "next/image";
 import React, { HTMLAttributes } from "react";
 
 export type SectionContentProps = {
@@ -45,7 +46,7 @@ const SectionContent = ({
             className="relative"
           >
             {image && (
-              <img
+              <Image
                 src={loadImgUrl(image.url)}
                 alt="Almacén SSL Distribuciones"
                 className="rounded-2xl shadow-2xl"

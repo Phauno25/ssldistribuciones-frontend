@@ -1,6 +1,6 @@
-import { NavBarData } from "@/components/layout/navbar/types";
+import { FooterData } from "@/components/layout";
 
-export const getFooter = async (): Promise<NavBarData> => {
+export const getFooter = async (): Promise<FooterData> => {
   const response = await fetch(
     `${process.env.API_URL}/footer?populate[logo][populate]=*&populate[menu][populate][menuItem][populate]=*&populate[mediaLinks][populate]=*`,
     {

@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { loadImgUrl } from "@/utils/functions";
 import { LogoData } from "@/types/types";
 import { Button, Icon, Menu, MenuProps } from "@/components/ui";
+import Image from "next/image";
 
 export type NavBarData = {
   id: string;
@@ -28,7 +29,7 @@ const NavBar: React.FC<NavBarData> = ({ logo, menu, title, displayTitle }) => {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img
+            <Image
               src={loadImgUrl(logo.url)}
               alt="SSL Logo"
               width={75}

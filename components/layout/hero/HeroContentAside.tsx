@@ -5,6 +5,7 @@ import { loadImgUrl } from "@/utils/functions";
 import { motion } from "motion/react";
 import { ImageType } from "@/types/types";
 import { Button, DynamicText, Icon } from "@/components/ui";
+import Image from "next/image";
 
 export type HeroContentAsideProps = {
   image: ImageType;
@@ -50,7 +51,6 @@ const HeroContentAside: React.FC<HeroContentAsideProps> = ({
                   texts={["confiabilidad", "rendimiento", "seguridad"]}
                 />
               }
-              {/* Salto de linea para que esto siempre este en el renglon de abajo */}
               {"\n"} con cada viaje.
             </h1>
             <p className="pl-2 text-left max-w-[600px] md:text-lg text-neutral-50">
@@ -112,7 +112,7 @@ const HeroContentAside: React.FC<HeroContentAsideProps> = ({
               </div>
               <div className="w-full h-3/4 overflow-hidden">
                 <Atropos shadow={false}>
-                  <img
+                  <Image
                     src={loadImgUrl(image.url)}
                     alt="Hero"
                     className="object-cover w-full h-full"

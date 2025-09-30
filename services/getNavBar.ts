@@ -1,4 +1,4 @@
-import { NavBarData } from "@/components/layout/navbar/types";
+import { NavBarData } from "@/components/layout";
 
 export const getNavBar = async (): Promise<NavBarData> => {
   const response = await fetch(

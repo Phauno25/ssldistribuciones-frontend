@@ -1,6 +1,7 @@
 import React from "react";
 import { IconName, LogoData } from "@/types/types";
 import { MenuProps, Icon } from "@/components/ui";
+import Image from "next/image";
 
 export type FooterData = {
   id: string;
@@ -18,7 +19,7 @@ const Footer: React.FC<FooterData> = ({ logo, title, menu, mediaLinks }) => {
         <div className="md:flex md:justify-between items-end">
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
-              <img
+              <Image
                 className="h-8 me-3"
                 src={`${process.env.NEXT_PUBLIC_BUCKET}${logo.url}`}
                 alt="SSL Logo"
