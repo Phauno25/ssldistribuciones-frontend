@@ -14,8 +14,6 @@ const SectionInput: React.FC<SectionInputProps> = ({
   header,
   title,
   description,
-  items,
-  ...props
 }) => {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-[#333] text-white border-t">

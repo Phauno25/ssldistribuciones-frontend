@@ -22,8 +22,6 @@ const styles = {
 };
 
 const Badge: React.FC<BadgeProps> = ({
-  size = "md",
-  variant = "filled",
   rounded,
   children,
   ...props

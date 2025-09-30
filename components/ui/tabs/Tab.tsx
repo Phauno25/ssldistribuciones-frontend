@@ -23,9 +23,6 @@ const Tab: React.FC<TabProps> = ({ children, onTabChange, ...props }) => {
         if (isValidElement(child) && child.type === TabItem) {
           return true;
         } else {
-          console.warn(
-            "Invalid child in Tab component. Only <TabItem /> is allowed."
-          );
           return false;
         }
       }

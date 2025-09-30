@@ -20,9 +20,7 @@ export type HeroContentAsideProps = {
   }[];
 };
 
-
 const HeroContentAside: React.FC<HeroContentAsideProps> = ({
-  title,
   image,
   description,
   actionButtons,
