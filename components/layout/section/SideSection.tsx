@@ -1,9 +1,16 @@
 import React from "react";
-import TitleBlock from "../../ui/title-block/TitleBlock";
-import "./section.css";
 import { motion } from "motion/react";
 import { easeIn } from "motion";
-import { SideSectionProps } from "./types";
+import { TitleBlock } from "@/components/ui";
+
+export type SideSectionProps = {
+  header?: string;
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  items?: { id: number; title: string; description: string }[];
+};
 
 const SideSection: React.FC<SideSectionProps> = ({
   header,
@@ -14,7 +21,10 @@ const SideSection: React.FC<SideSectionProps> = ({
   items,
 }) => {
   return (
-    <section className="z-10 relative section w-full py-12 md:py-24 lg:py-32 bg-none text-white content-visibility-auto">
+    <section
+      id="why-us"
+      className="relative w-full py-12 md:py-24 lg:py-32 bg-none text-white bg-transparent content-visibility-auto"
+    >
       <motion.div
         initial={{ opacity: 0, y: -5 }}
         whileInView={{ opacity: 1, y: 0 }}

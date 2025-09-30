@@ -1,10 +1,21 @@
+"use client";
 import React, { useState } from "react";
 import Icon from "../icon/Icon";
-import MenuItem from "./MenuItem";
+import MenuItem, { MenuItemProps } from "./MenuItem";
 import clsx from "clsx";
-import { ItemStyles } from "./styles";
 import { AnimatePresence, motion } from "motion/react";
-import { MenuItemProps } from "./types";
+
+export type MenuProps = {
+  id: string;
+  menuItem: MenuItemProps[];
+  name: string;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export const ItemStyles = {
+  base: "rounded transition-color duration-300 ease-in-out",
+  colors:
+    "md:border-0 hover:text-neutral-900 hover:text-primary-main",
+};
 
 const MenuListItem: React.FC<MenuItemProps> = ({ link: links, name }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +41,7 @@ const MenuListItem: React.FC<MenuItemProps> = ({ link: links, name }) => {
         {isOpen && (
           <div
             id="dropdownNavbar"
-            className=" absolute right-[0%] top-[105%] z-10 font-normal rounded-lg shadow w-fit min-w-44 border-2 border-surface-extraLight bg-surface-dark divide-surface-light"
+            className=" absolute right-[0%] top-[105%] z-10 font-normal rounded-lg shadow w-fit min-w-44 border border-surface-extralight bg-surface-dark divide-surface-light"
           >
             <motion.ul
               initial={{ height: "0px" }}

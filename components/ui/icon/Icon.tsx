@@ -1,5 +1,9 @@
-import { icons } from "lucide-react";
-import { IconProps } from "./types";
+import { icons, LucideProps } from "lucide-react";
+import { IconName } from "@/types/types";
+
+export type IconProps = {
+  name: IconName;
+} & LucideProps;
 
 const Icon = ({ name, ...props }: IconProps) => {
   const LucideIcon = icons[name];
@@ -9,7 +13,7 @@ const Icon = ({ name, ...props }: IconProps) => {
     return null;
   }
 
-  return <LucideIcon {...props} />;
+  return <LucideIcon strokeWidth={"0.5px"} {...props} />;
 };
 
 export default Icon;

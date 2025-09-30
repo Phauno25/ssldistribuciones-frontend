@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @view-transition {
   navigation: auto;
 }
@@ -18,14 +19,19 @@
   --color-primary-dark: #b91c1c;
   --color-primary-light: #ef4444;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+}
 
 body {
   width: 100%;
   max-width: 100%;
-  background-color: #1e262e;
 }

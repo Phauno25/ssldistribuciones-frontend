@@ -1,5 +1,5 @@
 import React from "react";
-import { TitleBlockProps } from "./types";
+import { TitleBlockProps } from "@/types/types";
 
 const TitleBlock: React.FC<TitleBlockProps> = ({
   header,

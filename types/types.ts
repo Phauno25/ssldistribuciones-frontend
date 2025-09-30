@@ -1,20 +1,33 @@
-import { BannerProps } from "@/components/layout/banner/types";
-import { HeroContentAsideProps } from "@/components/layout/hero/types";
 import {
-  SectionCTAProps,
+  BannerCTAProps,
+  BannerWithItemsProps,
+  HeroContentAsideProps,
+  SectionContentProps,
   SectionInputProps,
   SideSectionProps,
-} from "@/components/layout/section/types";
+  TextBlockGridProps,
+} from "@/components/layout";
+import { SectionCTAProps } from "@/components/layout/section/SectionCTA";
+import { ProductData } from "@/modules/productos/types";
 import { icons } from "lucide-react";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type ComponentLoaderProps = {
-  data: BodyItems[];
+  data?: BodyItems[];
+  products?: ProductData[];
 };
 
 export type BodyItems = {
   __component: string;
-} & (BannerProps | SectionCTAProps | SectionInputProps | SideSectionProps);
+} & (
+  | BannerWithItemsProps
+  | BannerCTAProps
+  | TextBlockGridProps
+  | SectionContentProps
+  | SectionCTAProps
+  | SectionInputProps
+  | SideSectionProps
+);
 
 export type HomePageProps = {
   hero: HeroContentAsideProps;

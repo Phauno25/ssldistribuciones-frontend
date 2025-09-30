@@ -1,6 +1,11 @@
 import React from "react";
 import clsx from "clsx";
-import { CheckboxProps } from "./types";
+
+export type CheckboxProps = {
+  helperText?: string;
+  label?: string;
+  bordered?: boolean;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 const style = {
   bordered:

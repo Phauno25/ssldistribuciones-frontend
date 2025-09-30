@@ -1,64 +1,64 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "lucide-react";
-import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
 import React from "react";
-import { SectionCTAProps } from "./types";
+import { useRouter } from "next/navigation";
+import { Badge, Button } from "@/components/ui";
 
-const MotionComponent = motion.create(Button);
+export type SectionCTAProps = {
+  header?: string;
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  items?: {
+    id: number;
+    variant: "filled" | "outlined" | "link" | "gradient";
+    text: string;
+    url: string;
+  }[];
+};
 
 const SectionCTA: React.FC<SectionCTAProps> = ({
   header,
   title,
   description,
-  imageSrc,
-  imageAlt,
   items,
 }) => {
   const router = useRouter();
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ amount: 0.5 }}
-      className="w-full py-12 md:py-24 lg:py-32 bg-neutral-100"
-    >
+    <section className="w-full my-12 md:my-24 lg:mt-32 lg:mb-24 relative">
       <div className="container flex flex-col md:flex-row md:items-center sm:items-start justify-evenly gap-6 px-10 md:px-6 lg:grid-cols-2 lg:gap-10">
         <div className=" space-y-4">
           {header && <Badge>{header}</Badge>}
 
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#333]">
+          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-white">
             {title}
           </h2>
-          <p className="max-w-[600px] text-[#666] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          <p className="max-w-[600px] text-white md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             {description}
           </p>
         </div>
         {items && (
           <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">
-            {items.map(({ id, text, url, variant, ...item }) => {
+            {items.map(({ id, text, url, ...item }) => {
               return (
-                <MotionComponent
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 1.5, rotate: 3 }}
+                <Button
                   id={id.toString()}
                   key={text}
                   size="xl"
                   onClick={() => {
                     router.push(url);
                   }}
-                  variant={variant ?? "filled"}
                   {...item}
+                  variant="gradient"
                 >
                   {text}
-                </MotionComponent>
+                </Button>
               );
             })}
           </div>
         )}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

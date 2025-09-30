@@ -1,36 +1,22 @@
-"use client";
 import ComponentLoader from "@/components/ComponentLoader";
-import { HeroContentAside } from "@/components/layout/hero";
-import useFetch from "@/hooks/useFetch";
-import { PageData, PageProps } from "@/types/types";
-import React, { useEffect } from "react";
+import { HeroPage } from "@/components/layout";
+import { getPageBySlug } from "@/modules/pages/services/getPageBySlug";
+import { PageProps } from "@/types/types";
 
-const Page = ({ params }: PageProps) => {
-  const { data, loading } = useFetch<PageData>(
-    `pages?filters[slug][$eq]=${params.slug}&populate[hero][populate]=*&populate[body][populate]=*`,
-    "collection"
-  );
-  useEffect(() => {}, [data]);
-
-  if (loading) {
-    return <p>loading...</p>;
-  }
-
-  return data ? (
-    <div className="container p-10 my-0 mx-auto">
-      {data[0].hero && (
-        <HeroContentAside
-          title={data[0].hero.title}
-          description={data[0].hero.description}
-          orientation="left"
-          actionButtons={data[0].hero.actionButtons}
-          image={data[0].hero.image}
+const Page = async ({ params }: PageProps) => {
+  const pageContent = await getPageBySlug(params.slug);
+  return (
+    pageContent && (
+      <>
+        <HeroPage
+          title={pageContent[0].name}
+          description={pageContent[0].description}
         />
-      )}
-      <ComponentLoader data={data[0].body} />
-    </div>
-  ) : (
-    <div>El slug es {params.slug} </div>
+        <div className="lg:p-20 md:p-12 p-6 ">
+          <ComponentLoader data={pageContent[0].body} />
+        </div>
+      </>
+    )
   );
 };
 

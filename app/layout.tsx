@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "../components/layout/navbar/NavBar";
 import "atropos/atropos.css";
-import NavBarSkeleton from "@/components/layout/navbar/NavBarSkeleton";
-import { NavBarData } from "@/components/layout/navbar/types";
-import { AppProvider } from "@/context";
-import { Footer, FooterSkeleton } from "@/components/layout/footer";
-import { getData } from "@/services/services";
-import { FooterData } from "@/components/layout/footer/types";
+import {
+  Footer,
+  FooterSkeleton,
+  NavBar,
+  NavBarSkeleton,
+} from "@/components/layout";
+import { getNavBar } from "@/services/getNavBar";
+import { getFooter } from "@/services/getFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,25 +22,41 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const navData: NavBarData | undefined = await getData(
-    "navbar?populate[logo][populate]=*&populate[menu][populate][menuItem][populate]=*",
-    "ui"
-  );
-  const footerData: FooterData | undefined = await getData(
-    "footer?populate[logo][populate]=*&populate[menu][populate][menuItem][populate]=*&populate[mediaLinks][populate]=*",
-    "ui"
-  );
+  const navData = await getNavBar();
+  const footerData = await getFooter();
   return (
     <html
       lang="es"
       style={{ colorScheme: "dark", maxWidth: "100vw", overflowX: "hidden" }}
     >
-      <body className={[inter.className, "relative"].join(" ")}>
-        <AppProvider>
+      <body className={[inter.className, "relative bg-black"].join(" ")}>
+        <div className="w-full">
+          <div
+            className="absolute inset-0 -z-10"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), transparent",
+            }}
+          />
+
+          <div
+            className="absolute inset-0 -z-10"
+            style={{
+              backgroundImage: `
+          radial-gradient(circle at 50% 65%, 
+            rgba(120, 180, 255, 0.15) 0%, 
+            rgba(120, 180, 255, 0.15) 5%, 
+            rgba(120, 180, 255, 0.15) 10%, 
+            transparent 50%
+          )
+        `,
+            }}
+          />
+
           {navData ? <NavBar {...navData} /> : <NavBarSkeleton />}
           {children}
           {footerData ? <Footer {...footerData} /> : <FooterSkeleton />}
-        </AppProvider>
+        </div>
       </body>
     </html>
   );

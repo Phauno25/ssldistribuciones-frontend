@@ -1,13 +1,20 @@
+"use client";
 import React, {
   Children,
+  HTMLAttributes,
   isValidElement,
   MouseEvent,
   ReactElement,
   useMemo,
 } from "react";
-import { TabItemProps, TabProps } from "./types";
 import clsx from "clsx";
-import TabItem from "./TabItem";
+import TabItem, { TabItemProps } from "./TabItem";
+
+export type TabProps = {
+  children?: React.ReactNode;
+  // eslint-disable-next-line no-unused-vars
+  onTabChange?: (tab: { index: number; value: string }) => void;
+} & HTMLAttributes<HTMLUListElement>;
 
 const Tab: React.FC<TabProps> = ({ children, onTabChange, ...props }) => {
   const tabItems = useMemo(() => {
@@ -45,9 +52,9 @@ const Tab: React.FC<TabProps> = ({ children, onTabChange, ...props }) => {
               {...tabItem.props}
               value={tabItem.props.value?.toString()}
               className={clsx(
-                "inline-block p-4 rounded-t-lg hover:bg-surface-light active:bg-surface-main",
+                "inline-block p-4 rounded-t-lg bg-surface-dark",
                 tabItem.props.selected
-                  ? " text-primary-main bg-surface-main"
+                  ? " text-primary-main bg-surface-dark"
                   : "text-white",
                 tabItem.props.className
               )}

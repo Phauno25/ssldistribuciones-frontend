@@ -1,10 +1,16 @@
 import React from "react";
 import { clsx } from "clsx";
-import { motion } from "motion/react";
-import { ButtonProps } from "./types";
+import "./button.css";
+
+export type ButtonProps = {
+  children?: React.ReactNode;
+  variant?: "filled" | "outlined" | "link" | "gradient";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  url?: string;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const styles = {
-  base: "rounded-lg text-center font-medium",
+  base: "ssl-button relative rounded-sm text-center font-medium outline-none cursor-pointer ring-off focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-secondary-main ring-offset-2",
   size: {
     xs: "px-3 py-2 text-xs",
     sm: "px-3 py-2 text-sm",
@@ -13,44 +19,19 @@ const styles = {
     xl: "px-6 py-3.5 text-base",
   },
   variant: {
-    outlined: `text-white border border-primary-main bg-transparent focus:ring-2 focus:outline-none focus:ring-secondary-main hover:text-black hover:bg-primary-main focus:ring-secondary-main`,
-    filled: `text-default font-semibold bg-primary-main active:bg-primary-dark hover:bg-primary-light`,
+    outlined: `text-white border border-primary-main bg-transparent hover:text-black hover:bg-primary-light active:bg-primary-dark`,
+    filled: `text-default font-semibold bg-primary-main hover:bg-primary-light active:bg-primary-dark`,
     link: "",
     gradient:
-      "p-0.5 flex items-center justify-center text-white bg-gradient-to-br from-secondary-main to-primary-main hover:from-blue-600 hover:to-primary-main hover:text-black hover:text-semibold focus:ring-1 focus:outline-none focus:ring-primary-main",
+      "ssl-button-gradient p-0.5 overflow-hidden rounded-none flex items-center justify-center text-white bg-transparent border-gradient-main border-2",
   },
 };
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant = "filled", size = "md", className, ...props }, ref) => {
-    return variant === "gradient" ? (
-      <motion.button
-        whileTap={{
-          scale: 1.2,
-        }}
-        whileHover={{ scale: 1.1 }}
+    return (
+      <button
         {...props}
-        className={clsx(styles.base, styles.variant[variant], className)}
-        color="red"
-        ref={ref}
-      >
-        <span
-          className={clsx(
-            styles.size[size],
-            "relative transition-all ease-in duration-75 bg-surface-main rounded-md hover:bg-opacity-0",
-            className
-          )}
-        >
-          {children}
-        </span>
-      </motion.button>
-    ) : (
-      <motion.button
-        {...props}
-        whileTap={{
-          scale: 1.2,
-        }}
-        whileHover={{ scale: 1.1 }}
         ref={ref}
         className={clsx(
           styles.base,
@@ -60,7 +41,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {children}
-      </motion.button>
+      </button>
     );
   }
 );

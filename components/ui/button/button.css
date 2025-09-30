@@ -1,0 +1,39 @@
+.ssl-button {
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.ssl-button:hover {
+    box-shadow: 0 4px 15px rgba(254, 215, 105, 0.2);
+}
+
+.ssl-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(75, 75, 75, 0.1), transparent);
+    transition: all 0.5s;
+}
+
+.ssl-button:hover::before {
+    left: 100%;
+}
+
+.ssl-button-gradient {
+    transition: box-shadow 0.2s ease;
+}
+
+.ssl-button-gradient:hover {
+    filter: brightness(1.5);
+    border-image-source: linear-gradient(45deg, #60a5fa, #FED769);
+    border-image-slice: 1;
+}
+
+.ssl-button-gradient:active {
+    filter: brightness(2);
+    box-shadow: 0px 0px 20px rgba(254, 215, 105, 0.8);
+
+}

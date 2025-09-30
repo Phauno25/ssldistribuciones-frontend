@@ -1,12 +1,19 @@
-"use client";
-import Icon from "@/components/ui/icon/Icon";
 import React from "react";
-import { FooterData } from "./types";
-import { IconName } from "@/types/types";
+import { IconName, LogoData } from "@/types/types";
+import { MenuProps, Icon } from "@/components/ui";
+
+export type FooterData = {
+  id: string;
+  title: string;
+  logo: LogoData;
+  menu: MenuProps;
+  displayTitle?: boolean;
+  mediaLinks?: { name: string; value: string }[];
+};
 
 const Footer: React.FC<FooterData> = ({ logo, title, menu, mediaLinks }) => {
   return (
-    <footer className="bg-surface-dark border-t-2 border-surface-main">
+    <footer className="border-t-2 border-surface-main">
       <div className=" px-12 lg:px-24 py-12 lg:py-16">
         <div className="md:flex md:justify-between items-end">
           <div className="mb-6 md:mb-0">

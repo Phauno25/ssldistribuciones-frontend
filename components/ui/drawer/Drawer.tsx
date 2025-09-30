@@ -1,7 +1,13 @@
-import clsx from "clsx";
+"use client"
 import React, { useEffect, useState } from "react";
-import { DrawerProps } from "./types";
-import { Icon } from "../icon";
+import clsx from "clsx";
+import Icon from "../icon/Icon";
+
+export type DrawerProps = {
+  open: boolean;
+  title: string;
+  onClose?: () => void;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const Drawer: React.FC<DrawerProps> = ({
   open,

@@ -1,24 +1,36 @@
+"use client";
 import React from "react";
-import SideSection from "./layout/section/SideSection";
-import Banner from "./layout/banner/Banner";
-import SectionCTA from "./layout/section/SectionCTA";
 import { loadImgUrl } from "@/utils/functions";
 import { ComponentLoaderProps } from "@/types/types";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import ProductCarousel from "@/modules/productos/components/ui/ProductCarrousel";
+import {
+  BannerCTA,
+  BannerWithItems,
+  SectionContent,
+  SideSection,
+  TextBlockGrid,
+} from "./layout";
+import SectionCTA from "./layout/section/SectionCTA";
 
-const ComponentLoader: React.FC<ComponentLoaderProps> = (props) => {
-  return props.data.map((item) => {
-    return itemLoader(item);
-  });
+const ComponentLoader: React.FC<ComponentLoaderProps> = ({
+  data,
+  products,
+}) => {
+  return (
+    data &&
+    data.map((item) => {
+      return itemLoader(item, products || []);
+    })
+  );
 };
 
-export default ComponentLoader;
-
-const itemLoader = (item: any): JSX.Element => {
+const itemLoader = (item: any, products: any[]): JSX.Element => {
   switch (item.__component) {
     case "layout.section":
       return (
         <SideSection
+          key={item.id || Math.random()}
           header={item.titleBlock?.header}
           title={item.titleBlock?.title}
           description={item.titleBlock?.description}
@@ -28,20 +40,77 @@ const itemLoader = (item: any): JSX.Element => {
       );
 
     case "layout.banner-with-items":
-      return <Banner background={item.background.url} items={item.items} />;
+      return (
+        <BannerWithItems
+          key={item.id || Math.random()}
+          items={item.items}
+          title={item.title}
+          description={item.description}
+        />
+      );
 
     case "layout.section-with-cta":
       return (
-        <SectionCTA
-          header={item.titleBlock?.header}
-          title={item.titleBlock?.title}
-          description={item.titleBlock?.description}
-          items={item.callToActions}
-        />
+        <div key={item.id}>
+          <SectionCTA
+            header={item.titleBlock?.header}
+            title={item.titleBlock?.title}
+            description={item.titleBlock?.description}
+            items={item.callToActions}
+          />
+          {products && <ProductCarousel products={products} />}
+        </div>
       );
     case "layout.rich-body-text":
-      return <BlocksRenderer content={item.text} />;
+      return (
+        <div key={item.id || Math.random()}>
+          <BlocksRenderer content={item.text} />
+        </div>
+      );
+    case "layout.rich-body-text":
+      return (
+        <div key={item.id || Math.random()}>
+          <BlocksRenderer content={item.text} />
+        </div>
+      );
+    case "layout.section-with-content":
+      return (
+        <SectionContent
+          title={item.title}
+          content={item.content}
+          image={item.image}
+        />
+      );
+    case "layout.text-grid":
+      return (
+        <>
+          <TextBlockGrid
+            leftBlock={item.leftBlock}
+            rightBlock={item.rightBlock}
+          />
+        </>
+      );
+    case "layout.text-grid":
+      return (
+        <>
+          <TextBlockGrid
+            leftBlock={item.leftBlock}
+            rightBlock={item.rightBlock}
+          />
+        </>
+      );
+    case "layout.banner-with-cta":
+      return (
+        <BannerCTA
+          icon={item.icon}
+          title={item.title}
+          description={item.description}
+          cta={item.cta}
+        />
+      );
     default:
-      return <p>Cargando Productos</p>;
+      return <p key={item.id || Math.random()}>Cargando Productos</p>;
   }
 };
+
+export default ComponentLoader;

@@ -1,7 +1,10 @@
-import React from "react";
-import { TabItemProps } from "./types";
+import React, { ButtonHTMLAttributes } from "react";
 
-const TabItem: React.FC<TabItemProps> = ({ children, selected, ...props }) => {
+export type TabItemProps = {
+  selected?: boolean;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const TabItem: React.FC<TabItemProps> = ({ children, ...props }) => {
   return <button {...props}>{children}</button>;
 };
 

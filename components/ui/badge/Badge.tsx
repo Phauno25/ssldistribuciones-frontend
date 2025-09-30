@@ -1,6 +1,12 @@
 import clsx from "clsx";
-import React from "react";
-import { BadgeProps } from "./types";
+import React, { HTMLAttributes } from "react";
+
+export type BadgeProps = {
+  size?: "sm" | "md";
+  variant?: "filled" | "outlined";
+  rounded?: boolean;
+  children?: React.ReactNode;
+} & HTMLAttributes<HTMLSpanElement>;
 
 const styles = {
   base: "text-center font-medium",

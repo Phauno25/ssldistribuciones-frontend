@@ -1,12 +1,18 @@
-import React from "react";
+import React, { TextareaHTMLAttributes } from "react";
 import clsx from "clsx";
-import { TextareaProps } from "./types";
+
+export type TextareaProps = {
+  status?: "error" | "success";
+  label?: string;
+  helperText?: string;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
+
 
 const inputStyle = {
-  base: "block w-full p-4 border border-red-300 rounded-lg bg-gray-50 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500",
+  base: "block bg-transparent w-full p-4 border border-surface-main placeholder-gray-400 text-white outline-none focus:border-gradient-main",
   status: {
     success:
-      "bg-green-50 border text-green-400 placeholder-green-700 placeholder-green-500 focus:ring-green-500 focus:border-green-500 bg-gray-700 border-green-500",
+      "bg-green-50 border text-green-400 placeholder-green-700 placeholder-green-500 focus:ring-green-500 focus:border-green-500 border-green-500",
     error:
       "bg-red-50 border focus:ring-red-500 bg-gray-700 text-red-500 placeholder-red-500 border-red-500",
   },

@@ -1,6 +1,11 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import clsx from "clsx";
-import { RadioProps } from "./types";
+
+export type RadioProps = {
+  helperText?: string;
+  label?: string;
+  bordered?: boolean;
+} & InputHTMLAttributes<HTMLInputElement>;
 
 const style = {
   bordered:

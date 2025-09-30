@@ -1,6 +1,10 @@
 import clsx from "clsx";
-import React, { useId } from "react";
-import { SelectProps } from "./types";
+import React, { SelectHTMLAttributes, useId } from "react";
+
+export type SelectProps = {
+  label?: string;
+  size?: "sm" | "md" | "lg";
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, "size">;
 
 const Select: React.FC<SelectProps> = ({
   label,

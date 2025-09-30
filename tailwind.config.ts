@@ -2,10 +2,10 @@ import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
 const primary = {
-  dark: "#fdba22",
-  main: "#FED769",
-  light: "#fee489",
-  extralight: "#fff1c6",
+  dark: "#f79909",
+  main: "#fdba22",
+  light: "#FED769",
+  extralight: "#fee489",
 };
 const secondary = {
   dark: "#2563eb",
@@ -48,6 +48,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./layouts/**/*.{js,ts,jsx,tsx,mdx}",
+    "./modules/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

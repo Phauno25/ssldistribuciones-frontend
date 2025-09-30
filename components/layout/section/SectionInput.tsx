@@ -1,7 +1,14 @@
+import { Badge, Button } from "@/components/ui";
 import React from "react";
-import { Button } from "../../ui/button";
-import { SectionInputProps } from "./types";
-import Badge from "@/components/ui/badge/Badge";
+
+export type SectionInputProps = {
+  header?: string;
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  items?: { id: number; title: string; description: string }[];
+};
 
 const SectionInput: React.FC<SectionInputProps> = ({
   header,

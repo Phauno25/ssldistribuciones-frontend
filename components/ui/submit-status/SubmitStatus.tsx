@@ -2,8 +2,13 @@ import React from "react";
 import Icon from "../icon/Icon";
 import Spinner from "../spinner/Spinner";
 import clsx from "clsx";
-import { SubmitStatusProps } from "./types";
 
+export type SubmitStatusProps = {
+  status: "success" | "error" | "loading";
+  title: string;
+  message: string;
+  actionContent?: React.ReactNode;
+};
 
 const MotionImage = ({ status }: { status: string }) => {
   if (status === "success") {
