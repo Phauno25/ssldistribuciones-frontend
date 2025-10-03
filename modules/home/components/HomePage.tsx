@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { HomePageProps } from "@/types/types";
 import ComponentLoader from "../../../components/ComponentLoader";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import { HeroContentAside } from "@/components/layout";
 import { ProductData } from "@/modules/productos/types";
+import Image from "next/image";
 
 const HomePage = ({
   data,

@@ -20,6 +20,8 @@ const Footer: React.FC<FooterData> = ({ logo, title, menu, mediaLinks }) => {
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
               <Image
+                width={32}
+                height={32}
                 className="h-8 me-3"
                 src={`${process.env.NEXT_PUBLIC_BUCKET}${logo.url}`}
                 alt="SSL Logo"

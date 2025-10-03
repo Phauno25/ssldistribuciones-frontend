@@ -10,7 +10,7 @@ export const POST = async (req: Request) => {
 
   const query = searchParams.get("query");
   const token = process.env.API_TOKEN_FORM_SUBMIT;
-  const apiUrl = `${process.env.API_URL}${query}`;
+  const apiUrl = `${process.env.API_URL}/${query}`;
 
   // Para obtener el body de la req es necesario usar el .json()
   const body = await req.json();

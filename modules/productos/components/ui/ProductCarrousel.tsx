@@ -7,18 +7,7 @@ const ProductCarousel: React.FC<{ products: ProductData[] }> = ({
   if (!products?.length) return null;
 
   // Duplicamos una sola vez: A + A
-  const loop = [
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-    ...products,
-  ];
+  const loop = [...products, ...products];
 
   return (
     <div className="overflow-hidden ">

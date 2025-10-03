@@ -30,6 +30,8 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         <div className="relative group">
           <div className=" overflow-hidden rounded-2xl border border-surface-main">
             <Image
+              height={384}
+              width={384}
               src={loadImgUrl(images[selectedImage].url)}
               alt={`${"productName"} - Vista ${selectedImage + 1}`}
               className="w-full h-96 md:h-[400px] object-cover"
@@ -39,22 +41,18 @@ export function ProductGallery({ images }: ProductGalleryProps) {
           {/* Navigation Arrows */}
           {images.length > 1 && (
             <>
-              <Button
-                variant="outlined"
-                size="xs"
-                className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-background/80 backdrop-blur-sm"
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 px-3 py-2 text-xs text-white border border-primary-main bg-transparent hover:text-black hover:bg-primary-light active:bg-primary-dark backdrop-blur-sm rounded-md"
                 onClick={prevImage}
               >
                 <ChevronLeft className="w-4 h-4" />
-              </Button>
-              <Button
-                variant="outlined"
-                size="xs"
-                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-background/80 backdrop-blur-sm"
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 px-3 py-2 text-xs text-white border border-primary-main bg-transparent hover:text-black hover:bg-primary-light active:bg-primary-dark backdrop-blur-sm rounded-md"
                 onClick={nextImage}
               >
                 <ChevronRight className="w-4 h-4" />
-              </Button>
+              </button>
             </>
           )}
 
@@ -78,6 +76,8 @@ export function ProductGallery({ images }: ProductGalleryProps) {
                 }`}
               >
                 <Image
+                  height={80}
+                  width={80}
                   src={loadImgUrl(image.url)}
                   alt={`${"productName"} - Miniatura ${index + 1}`}
                   className="w-full h-20 object-cover"

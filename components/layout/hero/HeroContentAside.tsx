@@ -30,7 +30,7 @@ const HeroContentAside: React.FC<HeroContentAsideProps> = ({
     <section className="w-full h-[90vh] mt-12 flex flex-row justify-start items-start gap-6 overflow-hidden">
       <div
         className={clsx(
-          "flex flex-row justify-between",
+          "flex flex-row justify-between w-full",
           orientation === "right" ? "flex-row-reverse" : "flex-row"
         )}
       >
@@ -109,11 +109,14 @@ const HeroContentAside: React.FC<HeroContentAsideProps> = ({
                 />
               </div>
               <div className="w-full h-3/4 overflow-hidden">
-                <Atropos shadow={false}>
+                <Atropos shadow={false} className="w-full h-full">
                   <Image
                     src={loadImgUrl(image.url)}
                     alt="Hero"
-                    className="object-cover w-full h-full"
+                    width={100}
+                    height={100}
+                    style={{ width: "100%", height: "auto" }}
+                    className="object-cover"
                   />
                 </Atropos>
               </div>

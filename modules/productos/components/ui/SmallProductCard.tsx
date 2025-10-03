@@ -54,6 +54,8 @@ const SmallProductCard: React.FC<SmallProductCardProps> = ({
           <div className="relative w-full h-36 md:h-36 overflow-hidden rounded group">
             {cover?.url && (
               <Image
+                height={144}
+                width={144}
                 alt="Imagen del producto"
                 src={loadImgUrl(cover.url)}
                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-0"

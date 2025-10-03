@@ -47,6 +47,7 @@ const SectionContent = ({
           >
             {image && (
               <Image
+                fill
                 src={loadImgUrl(image.url)}
                 alt="Almacén SSL Distribuciones"
                 className="rounded-2xl shadow-2xl"

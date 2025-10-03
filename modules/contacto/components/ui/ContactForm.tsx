@@ -49,7 +49,7 @@ const ContactForm = forwardRef<FormContactoRef, FormContactoProps>(
 
     return (
       <form
-        action="#"
+        method="POST"
         className="space-y-8 pt-4"
         onSubmit={handleSubmit(submitForm)}
       >

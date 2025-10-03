@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Input, Drawer } from "@/components/ui";
+import { Button, Input } from "@/components/ui";
 import SmallProductCard from "./ui/SmallProductCard";
 import ProductPageSkeleton from "./ui/ProductPageSkeleton";
 import ProductFilter from "./ui/ProductFilter";
@@ -10,6 +10,7 @@ import {
   SubCategoryData,
   CollectionData,
 } from "../types";
+import { DrawerLayout } from "@/components/ui/drawer";
 
 type ProductPageProps = {
   products?: ProductData[];
@@ -112,71 +113,78 @@ const ProductPage = ({
   };
 
   return products ? (
-    <div className="flex flex-col w-full">
-      <div className="md:py-24 md:px-16 py-12 p-4 w-fit">
-        <h1 className="text-primary-main text-5xl font-semibold py-4">
-          Productos
-        </h1>
-        <p className=" md:w-1/2">
-          Aquí podrás encontrar todos nuestros productos, filtra por categorías,
-          subcategorías y colecciones para encontrar lo que buscas.
-        </p>
-      </div>
-      <div className="w-full flex flex-row items-stretch flex-wrap gap-4 p-8">
-        <div className="w-full flex px-6 gap-4">
-          <Button
-            variant="filled"
-            className="bg-secondary-dark text-white"
-            onClick={() => setDrawerOpen(true)}
-          >
-            Filtros
-          </Button>
-          <Input
-            className="w-80"
-            name="filterName"
-            iconName="Search"
-            placeholder="Nombre, Modelo, Categoría..."
-            value={filterText}
-            onChange={handleFilterTextChange}
-          />
+    <DrawerLayout
+      drawer={{
+        open: drawerOpen,
+        title: "Filtros",
+        onClose: () => setDrawerOpen(false),
+        children: (
+          <>
+            <ProductFilter
+              categories={categories}
+              selectedCategories={selectedCategories}
+              selectedSubcategories={selectedSubcategories}
+              selectedCollections={selectedCollections}
+              onCategoryChange={handleCategoryChange}
+              onSubcategoryChange={handleSubcategoryChange}
+              onCollectionChange={handleCollectionChange}
+            />
+          </>
+        ),
+      }}
+    >
+      <div className="flex flex-col w-full">
+        <div className="md:py-24 md:px-16 py-12 p-4 w-fit">
+          <h1 className="text-primary-main text-5xl font-semibold py-4">
+            Productos
+          </h1>
+          <p className=" md:w-1/2">
+            Aquí podrás encontrar todos nuestros productos, filtrá por
+            categorías, subcategorías y colecciones para encontrar lo que
+            buscás.
+          </p>
         </div>
-
-        <div className="bg-surface-light w-full h-[1px] mb-8" />
-
-        {/* Drawer with Filters */}
-        <Drawer
-          open={drawerOpen}
-          onClose={() => setDrawerOpen(false)}
-          title="Filtros"
-        >
-          <ProductFilter
-            categories={categories}
-            selectedCategories={selectedCategories}
-            selectedSubcategories={selectedSubcategories}
-            selectedCollections={selectedCollections}
-            onCategoryChange={handleCategoryChange}
-            onSubcategoryChange={handleSubcategoryChange}
-            onCollectionChange={handleCollectionChange}
-          />
-        </Drawer>
-
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-          {filteredProducts?.map((product) => {
-            return <SmallProductCard key={product.name} product={product} />;
-          })}
-        </div>
-
-        {/* Show message when no products found */}
-        {filteredProducts.length === 0 && (
-          <div className="w-full text-center py-8">
-            <p className="text-gray-500">
-              No se encontraron productos que coincidan con los filtros
-              aplicados.
-            </p>
+        <div className="w-full flex flex-row items-stretch flex-wrap gap-4 p-8">
+          <div className="w-full flex flex-col sm:flex-row  px-6 gap-4">
+            <Button
+              variant="filled"
+              className="bg-secondary-dark text-white"
+              onClick={() => setDrawerOpen(!drawerOpen)}
+            >
+              {drawerOpen ? "Ocultar Filtros" : "Mostrar Filtros"}
+            </Button>
+            <Input
+              className=" sm:w-full md:w-80"
+              name="filterName"
+              iconName="Search"
+              placeholder="Nombre, Modelo, Categoría..."
+              value={filterText}
+              onChange={handleFilterTextChange}
+            />
           </div>
-        )}
+
+          <div className="bg-surface-light w-full h-[1px] mb-8" />
+
+          {/* Drawer with Filters */}
+
+          <div className="flex flex-wrap justify-center gap-8 ">
+            {filteredProducts?.map((product) => {
+              return <SmallProductCard key={product.name} product={product} />;
+            })}
+          </div>
+
+          {/* Show message when no products found */}
+          {filteredProducts.length === 0 && (
+            <div className="w-full text-center py-8">
+              <p className="text-gray-500">
+                No se encontraron productos que coincidan con los filtros
+                aplicados.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </DrawerLayout>
   ) : (
     // Skeleton de la pagina
     <ProductPageSkeleton />

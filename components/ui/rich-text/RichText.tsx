@@ -64,7 +64,13 @@ export function RichText({
           const alt = image.alternativeText || "";
           return (
             <div className="my-6">
-              <Image src={src} alt={alt} className={imageClassName} />
+              <Image
+                width={600}
+                height={800}
+                src={src}
+                alt={alt}
+                className={imageClassName}
+              />
               {alt && <p className="mt-2 text-sm text-gray-500">{alt}</p>}
             </div>
           );
