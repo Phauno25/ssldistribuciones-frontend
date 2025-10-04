@@ -19,7 +19,7 @@ const FAB = () => {
           "_blank"
         )
       }
-      className="fixed z-50 bottom-4 right-4 flex flex-nowrap items-center text-nowrap justify-start font-semibold border-2 overflow-hidden border-primary-main hover:bg-primary-dark hover:text-default rounded-full p-2 min-w-16 gap-4"
+      className="fixed backdrop-blur-md z-50 bottom-4 right-4 flex flex-nowrap items-center text-nowrap justify-start font-semibold border-2 overflow-hidden border-primary-main hover:bg-primary-dark hover:text-default rounded-full p-2 min-w-16 gap-4"
     >
       <Image
         src={SVGCromponent}

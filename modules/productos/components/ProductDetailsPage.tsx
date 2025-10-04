@@ -28,12 +28,12 @@ const ProductDetailsPage = ({
 
         <div className="w-full flex flex-col md:flex-row md:justify-between">
           {/* Galería */}
-          <div className="w-full md:w-1/2 flex justify-center px-12 h-fit">
+          <div className="w-full md:w-1/2 flex justify-center px-12 h-fit border-b md:border-b-0 pb-8 md:pb-0 border-gradient-main">
             <ProductGallery images={product.images} />
           </div>
-          <div className="w-full md:w-1/2 p-6 gap-12 flex flex-col justify-start border-l border-gradient-main">
+          <div className="w-full md:w-1/2 p-6 gap-12 flex flex-col justify-start border-l-0 md:border-l md:border-gradient-main">
             {/* Bloque de titulos */}
-            <div className="space-y-2">
+            <div className="space-y-2 mt-8 md:mt-0">
               <span className="text-muted text-md">
                 {product.category.name}
               </span>
@@ -72,16 +72,16 @@ const ProductDetailsPage = ({
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col md:flex-row md:justify-between mt-8 p-6">
-          <div className="w-full md:w-1/2 p-4">
+        <div className="w-full flex flex-col md:flex-row md:justify-between mt-8 p-2 md:p-6">
+          <div className="w-full md:w-1/2 p-2 md:p-4">
             <Tab>
               <TabItem value="ficha">Ficha Técnica</TabItem>
             </Tab>
-            <div className="p-4 flex flex-col w-full justify-start items-start text-left space-y-2 min-h-[50vh] md:min-h-[80vh]">
+            <div className=" p-0 md:p-4 flex flex-col w-full justify-start items-start text-left space-y-2 min-h-[50vh] md:min-h-[80vh]">
               <ProductSpecificationsCard {...product} />
             </div>
           </div>
-          <div className="w-full md:w-1/2 p-4">
+          <div className="w-full md:w-1/2 p-2 md:p-4">
             <Tab>
               <TabItem value="ficha">Descripción</TabItem>
             </Tab>
