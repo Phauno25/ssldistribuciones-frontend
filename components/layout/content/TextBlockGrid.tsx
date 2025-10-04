@@ -1,4 +1,3 @@
-
 import { TextBlock, TextBlockProps } from "@/components/ui";
 import React from "react";
 
@@ -9,7 +8,7 @@ export type TextBlockGridProps = {
 
 const TextBlockGrid = ({ leftBlock, rightBlock }: TextBlockGridProps) => {
   return (
-    <div className="grid lg:grid-cols-2 gap-12 py-20">
+    <div className=" w-full py-24 lg:py-32 grid lg:grid-cols-2 gap-36 md:gap-12">
       {leftBlock && (
         <TextBlock
           title={leftBlock.title}

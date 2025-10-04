@@ -23,7 +23,7 @@ const SideSection: React.FC<SideSectionProps> = ({
   return (
     <section
       id="why-us"
-      className="relative w-full py-12 md:py-24 lg:py-32 bg-none text-white bg-transparent content-visibility-auto"
+      className="relative w-full py-24 lg:py-32 text-white bg-transparent content-visibility-auto"
     >
       <motion.div
         initial={{ opacity: 0, y: -5 }}

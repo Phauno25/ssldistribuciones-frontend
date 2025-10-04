@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarData> = ({ logo, menu, title, displayTitle }) => {
               aria-controls="main-menu"
               aria-expanded="false"
               onClick={handleDisplayMenu}
-              className=" border-2"
+              className="border-surface-main border my-2"
             >
               <Icon name="Menu" />
             </Button>

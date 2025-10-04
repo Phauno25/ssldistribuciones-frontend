@@ -21,8 +21,8 @@ const SectionContent = ({
   ...props
 }: SectionContentProps) => {
   return (
-    <section {...props}>
-      <div className="container mx-auto px-4">
+    <section {...props} className="w-full py-24 lg:py-32">
+      <div className="mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start my-10">
           <motion.div
             initial={{ opacity: 0, y: -5 }}

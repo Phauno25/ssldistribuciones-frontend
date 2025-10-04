@@ -8,7 +8,7 @@ export type HeroPageProps = {
 const HeroPage = ({ title, description }: HeroPageProps) => {
   return (
     <section className="pt-24 pb-16 bg-transparent">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-primary-main mb-6 text-balance">
             {title}

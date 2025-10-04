@@ -25,8 +25,8 @@ const SectionCTA: React.FC<SectionCTAProps> = ({
   const router = useRouter();
 
   return (
-    <section className="w-full my-12 md:my-24 lg:mt-32 lg:mb-24 relative">
-      <div className="container flex flex-col md:flex-row md:items-center sm:items-start justify-evenly gap-6 px-10 md:px-6 lg:grid-cols-2 lg:gap-10">
+    <section className="w-full py-12 md:py-24 lg:py-32">
+      <div className="flex flex-col md:flex-row md:items-center sm:items-start justify-evenly gap-6 px-10 md:px-6 lg:grid-cols-2 lg:gap-10">
         <div className=" space-y-4">
           {header && <Badge>{header}</Badge>}
 
@@ -38,7 +38,7 @@ const SectionCTA: React.FC<SectionCTAProps> = ({
           </p>
         </div>
         {items && (
-          <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">
+          <div className="flex flex-col gap-2 md:flex-row lg:justify-end">
             {items.map(({ id, text, url, ...item }) => {
               return (
                 <Button

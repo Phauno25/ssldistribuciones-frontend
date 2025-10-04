@@ -15,8 +15,8 @@ const BannerWithItems: React.FC<BannerWithItemsProps> = ({
   ...props
 }) => {
   return (
-    <section {...props} className="py-20">
-      <div className="container mx-auto px-4">
+    <section {...props} className="w-full py-24 lg:py-32">
+      <div className="mx-auto px-4">
         {(title || description) && (
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-secondary mb-6">{title}</h2>
@@ -26,7 +26,7 @@ const BannerWithItems: React.FC<BannerWithItemsProps> = ({
           </div>
         )}
       </div>
-      <div className="container w-full flex items-strech justify-evenly gap-4 z-40 relative flex-wrap p-4">
+      <div className="w-full flex items-strech justify-evenly gap-4 z-40 relative flex-wrap p-4">
         {items?.map((item) => {
           return (
             <CardIcon

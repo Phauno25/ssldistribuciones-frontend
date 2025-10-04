@@ -13,8 +13,7 @@ export type MenuProps = {
 
 export const ItemStyles = {
   base: "rounded transition-color duration-300 ease-in-out",
-  colors:
-    "md:border-0 hover:text-neutral-900 hover:text-primary-main",
+  colors: "md:border-0 hover:text-neutral-900 hover:text-primary-main",
 };
 
 const MenuListItem: React.FC<MenuItemProps> = ({ link: links, name }) => {
@@ -41,7 +40,7 @@ const MenuListItem: React.FC<MenuItemProps> = ({ link: links, name }) => {
         {isOpen && (
           <div
             id="dropdownNavbar"
-            className=" absolute right-[0%] top-[105%] z-10 font-normal rounded-lg shadow w-fit min-w-44 border border-surface-extralight bg-surface-dark divide-surface-light"
+            className="block md:absolute md:right-[0%] md:top-[105%] z-10 font-normal rounded-lg shadow w-[95%] mx-auto md:mx-0 md:w-fit min-w-44 border bg-transparent md:border-surface-extralight md:bg-surface-dark md:divide-surface-light"
           >
             <motion.ul
               initial={{ height: "0px" }}

@@ -94,7 +94,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
       {/* CATEGORIAS */}
       <div className="overflow-hidden rounded-sm border border-surface-light">
         <button
-          className="flex text-white cursor-pointer items-center w-full justify-between p-4 bg-surface-dark"
+          className="flex text-white cursor-pointer items-center w-full justify-between p-4"
           onClick={() => {
             setCategoryOpen(!categoryOpen);
           }}
@@ -107,7 +107,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
           />
         </button>
         {categoryOpen && (
-          <div className="border-t border-surface-light bg-surface-dark">
+          <div className="border-t border-surface-light">
             {selectedCategories?.length && selectedCategories.length > 0 ? (
               <div className="flex items-center justify-end pt-2 px-4">
                 <button
@@ -130,7 +130,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
                       <input
                         type="checkbox"
                         id={category.slug}
-                        className="size-5 rounded-sm border-gray-300 dark:border-gray-600 dark:bg-surface-dark dark:focus:ring-offset-gray-900"
+                        className="size-5 rounded-sm border-gray-300 dark:focus:ring-offset-gray-900"
                         onChange={handleCategoryChange}
                         value={category.name}
                         checked={selectedCategories?.some(
@@ -152,7 +152,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
       {/* SUBCATEGORIAS */}
       <div className="overflow-hidden rounded-sm border border-surface-light">
         <button
-          className="flex text-white cursor-pointer items-center w-full justify-between p-4 bg-surface-dark"
+          className="flex text-white cursor-pointer items-center w-full justify-between p-4"
           onClick={() => {
             setSubcategoryOpen(!subcategoryOpen);
           }}
@@ -165,7 +165,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
         </button>
 
         {subcategoryOpen && (
-          <div className="border-t border-surface-light bg-surface-dark">
+          <div className="border-t border-surface-light">
             {selectedSubcategories?.length &&
             selectedSubcategories.length > 0 ? (
               <header className="flex items-center justify-end pt-2 px-4 p-2">
@@ -196,7 +196,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
                           checked={selectedSubcategories?.some(
                             (e) => e.name === subcategory.name
                           )}
-                          className="size-5 rounded-sm border-gray-300 dark:border-gray-600 dark:bg-surface-dark dark:focus:ring-offset-gray-900"
+                          className="size-5 rounded-sm border-gray-300 dark:border-gray-600 dark:focus:ring-offset-gray-900"
                         />
 
                         <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -214,7 +214,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
       {/* LINEA */}
       <div className="overflow-hidden rounded-sm border border-surface-light">
         <button
-          className="flex text-white cursor-pointer items-center w-full justify-between p-4 bg-surface-dark"
+          className="flex text-white cursor-pointer items-center w-full justify-between p-4"
           onClick={() => {
             setCollectionOpen(!collectionOpen);
           }}
@@ -228,7 +228,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
         </button>
 
         {collectionOpen && (
-          <div className="border-t border-surface-light bg-surface-dark">
+          <div className="border-t border-surface-light">
             {selectedCollections?.length && selectedCollections.length > 0 ? (
               <header className="flex items-center justify-end pt-2 px-4">
                 <button
@@ -260,7 +260,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
                               checked={selectedCollections?.some(
                                 (e) => e.name === collection.name
                               )}
-                              className="size-5 rounded-sm border-gray-300 dark:border-gray-600 dark:bg-surface-dark dark:focus:ring-offset-gray-900"
+                              className="size-5 rounded-sm border-gray-300 dark:border-gray-600 dark:focus:ring-offset-gray-900"
                             />
 
                             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">

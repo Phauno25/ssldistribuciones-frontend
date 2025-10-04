@@ -15,7 +15,7 @@ export type BannerCTAProps = {
 
 const BannerCTA = ({ icon, title, description, cta }: BannerCTAProps) => {
   return (
-    <section className="w-full flex justify-center py:12 md:py-24 lg:py-32">
+    <section className="w-full flex justify-center py-24 lg:py-32">
       <div className="w-3/4 p-4 flex flex-col items-center justify-center border rounded gap-8 border-surface-main">
         {icon && (
           <Icon
@@ -25,9 +25,9 @@ const BannerCTA = ({ icon, title, description, cta }: BannerCTAProps) => {
             className="animate-pulse text-primary-main"
           />
         )}
-        <span className="text-white p-2 font-semibold text-3xl">{title}</span>
-        <p className="text-lg text-neutral-200">{description}</p>
-        <div className="flex gap-4">
+        <span className="text-white p-2 text-center font-semibold text-3xl">{title}</span>
+        <p className="text-lg text-center text-neutral-200">{description}</p>
+        <div className="flex flex-col md:flex-row gap-4">
           {cta &&
             cta.map((item) => (
               <Button

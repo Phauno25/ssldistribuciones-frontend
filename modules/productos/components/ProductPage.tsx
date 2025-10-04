@@ -118,6 +118,7 @@ const ProductPage = ({
         open: drawerOpen,
         title: "Filtros",
         onClose: () => setDrawerOpen(false),
+        className: "bg-surface-dark",
         children: (
           <>
             <ProductFilter

@@ -110,8 +110,13 @@ const Drawer: React.FC<DrawerProps> = ({
         {/* Versión desktop - push */}
         <div
           className={clsx(
-            "hidden sm:block border-r border-gray-200 transition-all duration-300 ease-in-out overflow-y-auto",
-            isOpen ? widthClasses[width].split(" ").slice(1).join(" ") : "w-0" // Quitar w-full, solo usar sm:w-X
+            "hidden sm:block  transition-all duration-300 ease-in-out overflow-y-auto",
+            isOpen
+              ? ` ${widthClasses[width]
+                  .split(" ")
+                  .slice(1)
+                  .join(" ")} border-r border-gradient-main`
+              : "w-0"
           )}
         >
           {isOpen && (
@@ -142,8 +147,8 @@ const Drawer: React.FC<DrawerProps> = ({
     <div
       {...props}
       className={clsx(
-        "bg-surface-main border-r border-gray-200 transition-all duration-300 ease-in-out overflow-y-auto",
-        isOpen ? widthClasses[width] : "w-0",
+        "bg-surface-main transition-all duration-300 ease-in-out overflow-y-auto border-none",
+        isOpen ? `${widthClasses[width]} border-r border-gray-200` : "w-0",
         className
       )}
     >

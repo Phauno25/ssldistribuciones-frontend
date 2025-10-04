@@ -10,7 +10,7 @@ const ProductCarousel: React.FC<{ products: ProductData[] }> = ({
   const loop = [...products, ...products];
 
   return (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden w-full pb-12 md:pb-24 lg:pb-32">
       <div className="marquee">
         <div className="marquee__track gap-8">
           {loop.map((product, i) => (

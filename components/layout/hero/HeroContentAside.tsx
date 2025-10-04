@@ -70,7 +70,7 @@ const HeroContentAside: React.FC<HeroContentAsideProps> = ({
                     size="xl"
                     variant="gradient"
                     onClick={() => {
-                      window.location.href = "#why-us";
+                      window.location.href = "/pages/quienes-somos";
                     }}
                   >
                     {buttonProps.text}
